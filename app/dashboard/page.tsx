@@ -4,6 +4,7 @@ import { HeroTile } from '@/components/tiles/HeroTile'
 import { CourseTile } from '@/components/tiles/CourseTile'
 import { ActivityTile } from '@/components/tiles/ActivityTile'
 import { createClient } from '@/lib/supabase/server'
+import { Course } from '@/lib/supabase/types'
 import LoadingSkeleton from './loading'
 
 export default async function DashboardPage() {
@@ -18,10 +19,12 @@ async function DashboardContent() {
   const supabase = await createClient()
 
   // Fetch courses ordered by creation date
-  const { data: courses, error } = await supabase
+  const { data, error } = await supabase
     .from('courses')
     .select('*')
     .order('created_at', { ascending: true })
+
+  const courses = data as Course[] | null;
 
   if (error) {
     console.error('Supabase fetch error:', error)
