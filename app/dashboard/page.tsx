@@ -24,7 +24,8 @@ async function DashboardContent() {
     .order('created_at', { ascending: true })
 
   if (error) {
-    throw new Error('Failed to fetch dashboard data')
+    console.error('Supabase fetch error:', error)
+    throw new Error(`Failed to fetch dashboard data: ${error.message}`)
   }
 
   const mockUser = {

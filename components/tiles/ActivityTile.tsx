@@ -27,8 +27,8 @@ export function ActivityTile({ index }: ActivityTileProps) {
         {weeks.map((_, weekIdx) => (
           <div key={weekIdx} className="flex flex-col gap-1.5 flex-1">
             {days.map((_, dayIdx) => {
-              // Randomly determine opacity for mock data
-              const intensity = Math.random()
+              // Deterministic pseudo-random generation to prevent hydration mismatches
+              const intensity = Math.abs(Math.sin(weekIdx * 12.9898 + dayIdx * 78.233))
               let bgClass = "bg-[#16161f]" // Empty
               if (intensity > 0.8) bgClass = "bg-indigo-500" // High
               else if (intensity > 0.5) bgClass = "bg-indigo-500/60" // Medium

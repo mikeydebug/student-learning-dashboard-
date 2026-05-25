@@ -22,11 +22,11 @@ export function CourseTile({ course, index }: CourseTileProps) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, borderColor: 'rgba(255, 255, 255, 0.05)' }}
+      animate={{ opacity: 1, y: 0, borderColor: 'rgba(255, 255, 255, 0.05)' }}
       whileHover={{ scale: 1.015, borderColor: 'rgba(124, 58, 237, 0.6)' }}
       transition={{ type: 'spring', stiffness: 300, damping: 20, delay: index * 0.08 }}
-      className="relative group rounded-3xl p-6 bg-[#111118] border border-white/5 overflow-hidden flex flex-col justify-between min-h-[200px] cursor-pointer"
+      className="relative group rounded-3xl p-6 bg-[#111118] border overflow-hidden flex flex-col justify-between min-h-[200px] cursor-pointer"
     >
       {/* Gradient Mesh Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
