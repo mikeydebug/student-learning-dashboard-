@@ -23,9 +23,12 @@ export default function Error({
         
         <div>
           <h2 className="text-xl font-bold text-white mb-2">Something went wrong!</h2>
-          <p className="text-gray-400 text-sm">
-            We couldn't load your dashboard data. Please try again.
+          <p className="text-gray-400 text-sm mb-4">
+            We couldn't load your dashboard data.
           </p>
+          <div className="bg-[#09090b] p-4 rounded-lg text-left text-xs font-mono text-red-400 overflow-auto border border-red-500/20">
+            {error.message || 'Unknown error occurred.'}
+          </div>
         </div>
 
         <button
